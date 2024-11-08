@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Canteen</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Canteen</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                <li><a href="{% url 'order_detail' order_id=1 %}">My Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h2>Hello, {{ user.username }}!</h2>
+            <p>Welcome back to the canteen ordering system. Quickly browse the menu, view recent orders, or manage your profile.</p>
+        </section>
+
+        <section id="menu-preview">
+            <h2>Available Menu Items</h2>
+            <ul>
+                {% for item in menu_items %}
+                    <li>
+                        <h3>{{ item.name }}</h3>
+                        <p>Price: ${{ item.price }}</p>
+                        <p>Category: {{ item.category }}</p>
+                        <p>Status: {% if item.available %}Available{% else %}Not Available{% endif %}</p>
+                    </li>
+                {% empty %}
+                    <p>No menu items available right now.</p>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="orders">
+            <h2>Recent Orders</h2>
+            <ul>
+                {% for order in recent_orders %}
+                    <li>
+                        <h3>Order ID: {{ order.id }}</h3>
+                        <p>Total Price: ${{ order.total_price }}</p>
+                        <p>Status: {{ order.status }}</p>
+                        <p>Order Time: {{ order.order_time }}</p>
+                    </li>
+                {% empty %}
+                    <p>No recent orders found.</p>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Canteen Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
