@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRM Canteen</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">SRM Canteen</h1>
+        <nav class="navbar">
+            <button class="nav-btn" id="profile-btn">Profile</button>
+            <button class="nav-btn" id="orders-btn">Orders</button>
+            <button class="nav-btn" id="cart-btn">Cart</button>
+            <button class="nav-btn" id="help-btn">Help</button>
+        </nav>
+    </header>
+    
+
+    <main class="content">
+        <section class="menu-section">
+            <h2 class="menu-title">Menu</h2>
+            <nav class="navbar">
+                <button class="nav-btn" data-target="menu-section">Menu</button>
+                <button class="nav-btn" data-target="order-section">Orders</button>
+                <button class="nav-btn" data-target="profile-section">Profile</button>
+            </nav>
+            
+            <div class="menu-toggle">
+                <button onclick="toggleMenu('veg')" class="menu-toggle-btn">Veg Menu</button>
+                <button onclick="toggleMenu('non-veg')" class="menu-toggle-btn">Non-Veg Menu</button>
+            </div>
+
+            <!-- Veg Section -->
+                <h3 class="section-title">
+                    <span class="veg-icon">🟢</span> Veg
+                </h3>
+                <div class="menu-items veg-menu">
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="media\sandwich.jpg" alt="Sandwich" class="item-image">
+                        <h4 class="item-name">Sandwich</h4>
+                        <p class="item-price">₹50</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\samosa.jpg" alt="Samosa" class="item-image">
+                        <h4 class="item-name">Samosa</h4>
+                        <p class="item-price">₹20</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\dosa.jpg" alt="Dosa" class="item-image">
+                        <h4 class="item-name">Dosa</h4>
+                        <p class="item-price">₹40</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\idli.jpg" alt="Idli" class="item-image">
+                        <h4 class="item-name">Idli</h4>
+                        <p class="item-price">₹30</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\lemon_rice.jpg" alt="Lemon Rice" class="item-image">
+                        <h4 class="item-name">Lemon Rice</h4>
+                        <p class="item-price">₹60</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\tamarind_rice.jpg" alt="Tamarind Rice" class="item-image">
+                        <h4 class="item-name">Tamarind Rice</h4>
+                        <p class="item-price">₹60</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\poori.jpg" alt="Poori" class="item-image">
+                        <h4 class="item-name">Poori</h4>
+                        <p class="item-price">₹50</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\veg_noodles.jpg" alt="Veg Noodles" class="item-image">
+                        <h4 class="item-name">Veg Noodles</h4>
+                        <p class="item-price">₹70</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\veg_fried_rice.jpg" alt="Veg Fried Rice" class="item-image">
+                        <h4 class="item-name">Veg Fried Rice</h4>
+                        <p class="item-price">₹80</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Veg Section -->
+            <div class="non-veg-section">
+                <h3 class="section-title">
+                    <span class="non-veg-icon">🔺</span> Non-Veg
+                </h3>
+                
+                <!-- <div class="menu-items non-veg-menu" style="display: none;"> -->
+
+         
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="media\chicken_samosa.jpg" alt="Chicken Samosa" class="item-image">
+                        <h4 class="item-name">Chicken Samosa</h4>
+                        <p class="item-price">₹30</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\chicken_sandwich.jpg" alt="Chicken Sandwich" class="item-image">
+                        <h4 class="item-name">Chicken Sandwich</h4>
+                        <p class="item-price">₹70</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\egg_puff.jpg" alt="Egg Puff" class="item-image">
+                        <h4 class="item-name">Egg Puff</h4>
+                        <p class="item-price">₹40</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\biryani.jpg" alt="Biryani" class="item-image">
+                        <h4 class="item-name">Biryani</h4>
+                        <p class="item-price">₹150</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\chicken_noodles.jpg" alt="Chicken Noodles" class="item-image">
+                        <h4 class="item-name">Chicken Noodles</h4>
+                        <p class="item-price">₹90</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="media\chicken_fried_rice.jpg" alt="Chicken Fried Rice" class="item-image">
+                        <h4 class="item-name">Chicken Fried Rice</h4>
+                        <p class="item-price">₹100</p>
+                        <button class="order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="footer">
+        <p>&copy; 2024 SRM Canteen | Powered by SRM University</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
