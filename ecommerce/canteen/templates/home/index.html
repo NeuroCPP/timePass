@@ -1,5 +1,4 @@
-<!-- D:\Projects_clone\timePass\ecommerce\canteen\templates\home\index.html -->
-
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,40 +11,44 @@
     <header>
         <h1>SRM Canteen</h1>
         <nav>
-            <a href="#" class="profile">Profile</a>
-            <a href="#" class="menu">Menu</a>
+            <button onclick="viewProfile()">Profile</button>
+            <button onclick="viewOrders()">Orders</button>
         </nav>
     </header>
-
     <main>
-        <section id="menu">
-            <h2>Menu</h2>
-            <h3>Veg</h3>
-            <div class="menu-items">
-                {% for item in menu_items %}
-                    {% if item.category == 'veg' %}
-                        <div class="menu-item">
-                            <img src="{{ item.image.url }}" alt="{{ item.name }}">
-                            <p>{{ item.name }}</p>
-                            <p>₹{{ item.price }}</p>
-                        </div>
-                    {% endif %}
+        <section>
+            <h2>Veg Menu</h2>
+            <div id="veg-menu">
+                {% for item in veg_items %}
+                    <div class="menu-item">
+                        {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        {% else %}
+                        <img src="{% static 'img/veg-logo.png' %}" alt="Veg">
+                        {% endif %}
+                        <p>{{ item.name }} - ₹{{ item.price }}</p>
+                    </div>
                 {% endfor %}
             </div>
+        </section>
 
-            <h3>Non-Veg</h3>
-            <div class="menu-items">
-                {% for item in menu_items %}
-                    {% if item.category == 'nonveg' %}
-                        <div class="menu-item">
-                            <img src="{{ item.image.url }}" alt="{{ item.name }}">
-                            <p>{{ item.name }}</p>
-                            <p>₹{{ item.price }}</p>
-                        </div>
-                    {% endif %}
+        <!-- non veg section -->
+        <section>
+            <h2>Non-Veg Menu</h2>
+            <div id="non-veg-menu">
+                {% for item in non_veg_items %}
+                    <div class="menu-item">
+                        {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                {% else %}
+                    <img src="{% static 'img/non-veg-logo.png' %}" alt="Non-Veg">
+                {% endif %}
+                <p>{{ item.name }} - ₹{{ item.price }}</p>
+                    </div>
                 {% endfor %}
             </div>
         </section>
     </main>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

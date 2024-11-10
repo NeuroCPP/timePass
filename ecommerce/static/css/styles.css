@@ -96,6 +96,12 @@ body {
     justify-content: space-between;
 }
 
+.menu-item img {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    object-fit: cover;
+}
+
 /* Image Style */
 .item-image {
     width: 100%;

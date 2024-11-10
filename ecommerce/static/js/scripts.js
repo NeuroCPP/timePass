@@ -10,3 +10,11 @@ function toggleMenu(type) {
         vegSection.classList.add('hidden');
     }
 }
+
+function viewProfile() {
+    alert("Profile feature coming soon!");
+}
+
+function viewOrders() {
+    alert("Order tracking coming soon!");
+}
