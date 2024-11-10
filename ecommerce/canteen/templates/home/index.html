@@ -11,10 +11,32 @@
     <header>
         <h1>SRM Canteen</h1>
         <nav>
-            <button onclick="viewProfile()">Profile</button>
-            <button onclick="viewOrders()">Orders</button>
+            <button id="profileButton">Profile</button>
+            <button id="loginButton">Login</button>
         </nav>
     </header>
+    <section id="profileSection" class="hidden">
+        <h2>Your Profile</h2>
+        <!-- Add profile information here, or load it dynamically -->
+        <p>Email: {{ user.email }}</p>
+        <p>Phone Number: {{ user.userprofile.phone_number }}</p>
+        <p>Address: {{ user.userprofile.address }}</p>
+    </section>
+
+    <section id="loginSection" class="hidden">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
     <main>
         <section>
             <h2>Veg Menu</h2>
